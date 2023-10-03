@@ -21,10 +21,10 @@ Please copy the DLL (.dll) files located under the directories where the plugin 
 `OpenWolfPack\bin\Debug\net7.0-windows\Plugins`
 
 ### Directories where Plugin Files are Generated
-`FetchUrlAPI\bin\Debug\net7.0`
-`HolidayCalendarAPI\bin\Debug\net7.0`
-`PythonInterpreterAPI\bin\Debug\net7.0`
-`ReadFileAPI\bin\Debug\net7.0`
+`FetchUrlAPI\bin\Debug\net7.0`  
+`HolidayCalendarAPI\bin\Debug\net7.0`  
+`PythonInterpreterAPI\bin\Debug\net7.0`  
+`ReadFileAPI\bin\Debug\net7.0`  
 
 ## API Key Requirement
 To use OpenAI API, you need to obtain an OpenAI API key in advance.
@@ -34,12 +34,12 @@ Register the obtained API key as an environment variable with the name OPENAI_AI
 If you have any questions, please contact OpenWolfPack.
 
 ## Modes
-### `UI Analyzer (User Intent Analyzer)`: Supports you in understanding user intent.
-### `Advice`: Automatically adds supplementary information to user's written content to support them.
-### `ReAct`: This function clarifies thoughts, actions, and observations and promotes more structured communication.
-### `Training`: AI evolves (This is highly experimental).
-### `Pipeline`: Act according to specified procedures.
-### `Function`: Enable all checked APIs.
+`UI Analyzer (User Intent Analyzer)`: Supports you in understanding user intent.  
+`Advice`: Automatically adds supplementary information to user's written content to support them.  
+`ReAct`: This function clarifies thoughts, actions, and observations and promotes more structured communication.  
+`Training`: AI evolves (This is highly experimental).  
+`Pipeline`: Act according to specified procedures.  
+`Function`: Enable all checked APIs.  
 
 ## Plugins
 To implement the `function calling` feature, create a class library containing the methods listed below and place the resulting dll file in the Plugins directory.
