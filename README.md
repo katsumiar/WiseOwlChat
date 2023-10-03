@@ -1,5 +1,5 @@
 # OpenWolfPack
-![sample](https://github.com/katsumiar/OpenWolfPack/assets/63950487/0a49713e-fc57-47a8-84fa-36ecc8148458)
+![sample](https://github.com/katsumiar/OpenWolfPack/assets/63950487/97c0b549-c87f-4b60-91fd-b35709ebcc14)
 
 ## Features
 OpenWolfPack has the following features.
