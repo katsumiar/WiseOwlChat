@@ -14,34 +14,35 @@ OpenWolfPack is a chatbot that operates using OpenAI API.
 
 ## How to Build
 Set the directory containing the `OpenWolfPack.sln` file as your current directory, and execute the `dotnet build` command.
-The executable file (OpenWolfPack.exe) will be created in the following directory:
+The executable file (OpenWolfPack.exe) will be created in the following directory:  
 `OpenWolfPack\bin\Debug\net7.0-windows`
 
-Please copy the DLL (.dll) files located under the directories where the plugin files are generated to the following directory:
+Please copy the DLL (.dll) files located under the directories where the plugin files are generated to the following directory:  
 `OpenWolfPack\bin\Debug\net7.0-windows\Plugins`
 
 ### Directories where Plugin Files are Generated
-`FetchUrlAPI\bin\Debug\net7.0`
-`HolidayCalendarAPI\bin\Debug\net7.0`
-`PythonInterpreterAPI\bin\Debug\net7.0`
-`ReadFileAPI\bin\Debug\net7.0`
+`FetchUrlAPI\bin\Debug\net7.0`  
+`HolidayCalendarAPI\bin\Debug\net7.0`  
+`PythonInterpreterAPI\bin\Debug\net7.0`  
+`ReadFileAPI\bin\Debug\net7.0`  
 
 ## API Key Requirement
 To use OpenAI API, you need to obtain an OpenAI API key in advance.
 Register the obtained API key as an environment variable with the name OPENAI_AI_KEY or OPENAI_KEY (Note: The purpose is the same, just the name is different).
+
 ## Support
 If you have any questions, please contact OpenWolfPack.
 
 ## Modes
-### UI Analyzer (User Intent Analyzer): Supports you in understanding user intent.
-### Advice: Automatically adds supplementary information to user's written content to support them.
-### ReAct: This function clarifies thoughts, actions, and observations and promotes more structured communication.
-### Training: AI evolves (This is highly experimental).
-### Pipeline: Act according to specified procedures.
-### Function: Enable all checked APIs.
+`UI Analyzer (User Intent Analyzer)`: Supports you in understanding user intent.  
+`Advice`: Automatically adds supplementary information to user's written content to support them.  
+`ReAct`: This function clarifies thoughts, actions, and observations and promotes more structured communication.  
+`Training`: AI evolves (This is highly experimental).  
+`Pipeline`: Act according to specified procedures.  
+`Function`: Enable all checked APIs.  
 
 ## Plugins
-To implement the function calling feature, create a class library containing the methods listed below and place the resulting dll file in the Plugins directory.
+To implement the `function calling` feature, create a class library containing the methods listed below and place the resulting dll file in the Plugins directory.
 It will be automatically loaded and callable.
 ```
 - string FunctionName { get; }
@@ -52,9 +53,7 @@ It will be automatically loaded and callable.
 *Sample source codes for ReadFileAPI.cs and FetchUrlAPI.cs plugins are included.*
 
 ## Local File Referencing is Supported
-When you drag and drop a file into the input field, the file path will be inserted and the bot can respond to the content of that file.
-However, only text files are supported.
-This feature is implemented as a Plugin API (ReadFileAPI).
+When you drag and drop a file into the input field, the file is placed on a localhost server managed by OpenWolfPack and is replaced with a URL. You can then access it using the `FetchUrlAPI` plugin. If you want to directly refer to the file path, you can use the `ReadFileAPI` plugin.
 
 ## URL Referencing is Supported
 The bot can respond to URL content, including HTML, PDF, and text files.  
@@ -78,19 +77,20 @@ This feature is implemented as a plugin API (HolidayCalendarAPI).
 Please set the path to Python's DLL in the environment variable `PYTHONNET_PYDLL` in advance.  
 Make sure to pre-install useful modules like `sympy`.  
 This feature provides LLM with reliable computational capabilities.  
-This feature is implemented as a Plugin API (PythonInterpreterAPI).
+This feature is implemented as a Plugin API (PythonInterpreterAPI).  
+**This feature is recommended to be run within a sandbox.**
 
 ## Works with the website.
-OpenWolfPack launches a dedicated website as localhost at startup.
-When you send a query from a web browser as shown below, OpenWolfPack reads the specified <URL> and responds to the user.
-http://localhost:55553/queryUrl?url=<URL>
+OpenWolfPack launches a dedicated website as localhost at startup.  
+When you send a query from a web browser as shown below, OpenWolfPack reads the specified <URL> and responds to the user.  
+`http://localhost:55553/queryUrl?url=<URL>`
 
 ## Works with the website.
-OpenWolfPack launches a dedicated website as localhost at startup.
-- When you send a query from a web browser as shown below, OpenWolfPack will read the specified <URL> and respond to the user.
-http://localhost:55553/queryUrl?url=<URL>
-- When you send a query from a web browser as shown below, OpenWolfPack will respond to the specified <request content>.
-http://localhost:55553/query?request=<request content>
+OpenWolfPack launches a dedicated website as localhost at startup.  
+- When you send a query from a web browser as shown below, OpenWolfPack will read the specified <URL> and respond to the user.  
+`http://localhost:55553/queryUrl?url=<URL>`
+- When you send a query from a web browser as shown below, OpenWolfPack will respond to the specified <request content>.  
+`http://localhost:55553/query?request=<request content>`
 
 ## Forbidden Expressions
 If you want to specify forbidden expressions, write them in the forbiddenExpressions.json file.
