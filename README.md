@@ -1,3 +1,14 @@
+# We plan to gradually change the name from OpenWolfPack to WiseOwlChat.
+
+The transition will begin with the repository name, followed by updates to the project source code, and finally modifications to Actions.
+
+When the name changes, GitHub automatically redirects requests for the old repository name to the new repository name.
+
+You will need to update the remote URL in your local Git repository as well.
+```
+git remote set-url origin https://github.com/katsumiar/WiseOwlChat.git
+```
+
 # OpenWolfPack
 ![sample](https://github.com/katsumiar/OpenWolfPack/assets/63950487/97c0b549-c87f-4b60-91fd-b35709ebcc14)
 
@@ -32,7 +43,7 @@ Please copy the DLL (.dll) files located under the directories where the plugin 
 
 ## API Key Requirement
 To use OpenAI API, you need to obtain an OpenAI API key in advance.
-Register the obtained API key as an environment variable with the name OPENAI_AI_KEY or OPENAI_KEY (Note: The purpose is the same, just the name is different).
+Register the obtained API key as an environment variable with the name `OPENAI_AI_KEY` or `OPENAI_KEY` (Note: The purpose is the same, just the name is different).
 
 ## Support
 If you have any questions, please contact OpenWolfPack.
