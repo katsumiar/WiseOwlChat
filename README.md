@@ -1,4 +1,5 @@
 # OpenWolfPack
+![sample](https://github.com/katsumiar/OpenWolfPack/assets/63950487/0a49713e-fc57-47a8-84fa-36ecc8148458)
 
 ## Features
 OpenWolfPack has the following features.
@@ -14,10 +15,10 @@ OpenWolfPack is a chatbot that operates using OpenAI API.
 
 ## How to Build
 Set the directory containing the `OpenWolfPack.sln` file as your current directory, and execute the `dotnet build` command.
-The executable file (OpenWolfPack.exe) will be created in the following directory:
+The executable file (OpenWolfPack.exe) will be created in the following directory:  
 `OpenWolfPack\bin\Debug\net7.0-windows`
 
-Please copy the DLL (.dll) files located under the directories where the plugin files are generated to the following directory:
+Please copy the DLL (.dll) files located under the directories where the plugin files are generated to the following directory:  
 `OpenWolfPack\bin\Debug\net7.0-windows\Plugins`
 
 ### Directories where Plugin Files are Generated
@@ -82,16 +83,16 @@ This feature provides LLM with reliable computational capabilities.
 This feature is implemented as a Plugin API (PythonInterpreterAPI).
 
 ## Works with the website.
-OpenWolfPack launches a dedicated website as localhost at startup.
-When you send a query from a web browser as shown below, OpenWolfPack reads the specified <URL> and responds to the user.
-http://localhost:55553/queryUrl?url=<URL>
+OpenWolfPack launches a dedicated website as localhost at startup.  
+When you send a query from a web browser as shown below, OpenWolfPack reads the specified <URL> and responds to the user.  
+`http://localhost:55553/queryUrl?url=<URL>`
 
 ## Works with the website.
-OpenWolfPack launches a dedicated website as localhost at startup.
-- When you send a query from a web browser as shown below, OpenWolfPack will read the specified <URL> and respond to the user.
-http://localhost:55553/queryUrl?url=<URL>
-- When you send a query from a web browser as shown below, OpenWolfPack will respond to the specified <request content>.
-http://localhost:55553/query?request=<request content>
+OpenWolfPack launches a dedicated website as localhost at startup.  
+- When you send a query from a web browser as shown below, OpenWolfPack will read the specified <URL> and respond to the user.  
+`http://localhost:55553/queryUrl?url=<URL>`
+- When you send a query from a web browser as shown below, OpenWolfPack will respond to the specified <request content>.  
+`http://localhost:55553/query?request=<request content>`
 
 ## Forbidden Expressions
 If you want to specify forbidden expressions, write them in the forbiddenExpressions.json file.
