@@ -78,7 +78,8 @@ This feature is implemented as a plugin API (HolidayCalendarAPI).
 Please set the path to Python's DLL in the environment variable `PYTHONNET_PYDLL` in advance.  
 Make sure to pre-install useful modules like `sympy`.  
 This feature provides LLM with reliable computational capabilities.  
-This feature is implemented as a Plugin API (PythonInterpreterAPI).
+This feature is implemented as a Plugin API (PythonInterpreterAPI).  
+**This feature is recommended to be run within a sandbox.**
 
 ## Works with the website.
 OpenWolfPack launches a dedicated website as localhost at startup.  
