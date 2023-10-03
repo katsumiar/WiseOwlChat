@@ -17,4 +17,8 @@
     </Compile>
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Copy SourceFiles="$(OutDir)PythonInterpreterAPI.dll" DestinationFolder="..\OpenWolfPack\Plugins\" />
+  </Target>
+
 </Project>
