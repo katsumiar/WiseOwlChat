@@ -54,9 +54,7 @@ It will be automatically loaded and callable.
 *Sample source codes for ReadFileAPI.cs and FetchUrlAPI.cs plugins are included.*
 
 ## Local File Referencing is Supported
-When you drag and drop a file into the input field, the file path will be inserted and the bot can respond to the content of that file.
-However, only text files are supported.
-This feature is implemented as a Plugin API (ReadFileAPI).
+When you drag and drop a file into the input field, the file is placed on a localhost server managed by OpenWolfPack and is replaced with a URL. You can then access it using the `FetchUrlAPI` plugin. If you want to directly refer to the file path, you can use the `ReadFileAPI` plugin.
 
 ## URL Referencing is Supported
 The bot can respond to URL content, including HTML, PDF, and text files.  
