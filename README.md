@@ -13,7 +13,10 @@ OpenWolfPack has the following features.
 
 OpenWolfPack is a chatbot that operates using OpenAI API.
 
-## How to Build
+## Supported .NET version:
+7.0
+
+## Getting Started
 Set the directory containing the `OpenWolfPack.sln` file as your current directory, and execute the `dotnet build` command.
 The executable file (OpenWolfPack.exe) will be created in the following directory:  
 `OpenWolfPack\bin\Debug\net7.0-windows`
