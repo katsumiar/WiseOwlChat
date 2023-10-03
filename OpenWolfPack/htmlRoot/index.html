@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenWolfPack</title>
+    <link rel="stylesheet" type="text/css" href="OpenWolfPack.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <h1>Welcome to OpenWolfPack</h1>
+    <p><a href="{%Address%}"><i class="fas fa-sync-alt"></i> Refresh</a></p>
+    <p>This page is designed to work with OpenWolfPack.</p>
+    For instructions on how to use it, click <a href="queryUrl?url={%Address%}storage/OpenWolfPack.md">`<i class="fas fa-comments"></i>OpenWolfPack`</a> and ask questions.
+    <h2>List of knowledges</h2>
+
+    <ul>
+        <li><a href="queryUrl?url={%Address%}storage/OpenWolfPack.md"><i class="fas fa-comments"></i>OpenWolfPack</a></li>
+        <li><a href='queryUrl?url=https://openai.com/enterprise-privacy'><i class="fas fa-comments"></i>Enterprise privacy at OpenAI</a></li>
+    </ul>
+
+    <h2>List of stored files</h2>
+    {%message%}
+    {%fileList%}
+    <h3>You can upload files.</h3>
+    {%uploadForm%}
+    <hr>
+    Copyright: 2023, Katsumi Aradono<br>
+    The MIT License (MIT)
+</body>
+</html>

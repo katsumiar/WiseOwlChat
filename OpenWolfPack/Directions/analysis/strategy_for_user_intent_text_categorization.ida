@@ -1,0 +1,61 @@
+﻿-------------------------------------------------------
+$Constraints:
+# Constraints(General-Purpose Analysis Prompt Guidelines)
+## Multi-Faceted View on Topics
+- Analyze the topic from 2-3 different angles.
+## Varied Structure and Format
+- Alternate between short and long sentences, and include 1-2 interrogative or exclamatory sentences.
+## Utilize Rhetorical Devices
+- Employ at least one rhetorical device (e.g., metaphor, repetition, antithesis).
+## Focus on Internal Elements
+- In 1-2 instances, delve deeply into the underlying causes or impacts related to the topic.
+## Mind the Tempo
+- Be mindful of paragraph breaks and punctuation (like commas and periods) to create a sense of rhythm throughout the text.
+## Style and Tone
+- Write in third-person or maintain an objective narrative style.
+- Use inventive language to add depth and dimension to the analysis.
+- Maintain a tone that is subtle yet engaging.
+# Respond in {Language}
+$end
+
+-------------------------------------------------------
+$Instruction:
+# Instruction
+Based on the classification of the text and user intent, please analyze to meet the user's request.
+
+# Input
+TOPIC:
+```
+{fetch: TOPIC}
+```
+
+result of analysis: user intent classification guide
+```
+{fetch: analysis/user_intent_classification_guide}
+```
+
+result of analysis: user intent text formatting guide
+```
+{fetch: analysis/user_intent_text_formatting_guide}
+```
+
+# Output
+bullet points(agenda).
+$end
+
+-------------------------------------------------------
+$Each Request Format:
+# Instruction
+Analysis:
+{individual instructions}
+
+# Input
+TOPIC:
+```
+{fetch: TOPIC}
+```
+
+# Output(Respond in {Language})
+title:(Bold)
+contents:
+$end

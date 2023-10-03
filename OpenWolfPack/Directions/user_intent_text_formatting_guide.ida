@@ -1,0 +1,21 @@
+﻿Please write the classification of the text and the user's intent as '@classification:<classification>' and '@intent:<intent>' (replace '<classification>' and '<intent>' with the content).
+# Classification of the text
+- Article
+- Literature
+- Art
+- Technology
+- Letter
+- Business Document
+- Materials
+- Equations
+- Program
+# Classification of the intent
+- Question
+- Analysis
+- Survey
+- Evaluation
+- Production
+- Creation
+- Modification
+- Alternative
+- Chit-chat

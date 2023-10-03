@@ -1,0 +1,31 @@
+﻿Please classify the user's intent and the text. Below is the scheme for this:
+# Understanding the user's purpose
+'The meaning of writing the text' and 'the meaning of pasting the text' become significant.
+# If it was a pasted text with a purpose
+Consider the classification of the pasted text and the intent behind writing it.
+# If it was a pasted text
+Consider the classification of the pasted text.
+# If it's neither a 'pasted text with a purpose' nor 'just a pasted text,' consider it as 'written text'
+Consider the intent behind writing it.
+Consider the classification of the written text.
+# Classification of the pasted text
+- Article
+- Literature
+- Art
+- Technology
+- Letter
+- Business document
+- Materials
+- Equations
+- Programs
+# Classification of the intent (the purpose of pasting the text)
+- Question
+- Analysis
+- Survey
+- Evaluation
+- Production
+- Creation
+- Modification
+- Alternative
+- Chit-chat
+# Consider the intent behind writing and the classification of the written text from these logics

@@ -1,4 +1,4 @@
-# OpenWolfPack
+﻿# OpenWolfPack
 
 ## Features
 OpenWolfPack has the following features.
@@ -29,20 +29,19 @@ Please copy the DLL (.dll) files located under the directories where the plugin 
 ## API Key Requirement
 To use OpenAI API, you need to obtain an OpenAI API key in advance.
 Register the obtained API key as an environment variable with the name OPENAI_AI_KEY or OPENAI_KEY (Note: The purpose is the same, just the name is different).
-
 ## Support
 If you have any questions, please contact OpenWolfPack.
 
 ## Modes
-### `UI Analyzer (User Intent Analyzer)`: Supports you in understanding user intent.
-### `Advice`: Automatically adds supplementary information to user's written content to support them.
-### `ReAct`: This function clarifies thoughts, actions, and observations and promotes more structured communication.
-### `Training`: AI evolves (This is highly experimental).
-### `Pipeline`: Act according to specified procedures.
-### `Function`: Enable all checked APIs.
+### UI Analyzer (User Intent Analyzer): Supports you in understanding user intent.
+### Advice: Automatically adds supplementary information to user's written content to support them.
+### ReAct: This function clarifies thoughts, actions, and observations and promotes more structured communication.
+### Training: AI evolves (This is highly experimental).
+### Pipeline: Act according to specified procedures.
+### Function: Enable all checked APIs.
 
 ## Plugins
-To implement the `function calling` feature, create a class library containing the methods listed below and place the resulting dll file in the Plugins directory.
+To implement the function calling feature, create a class library containing the methods listed below and place the resulting dll file in the Plugins directory.
 It will be automatically loaded and callable.
 ```
 - string FunctionName { get; }
@@ -130,3 +129,60 @@ It is treated as a single prompt.
 
 Copyright: 2023, Katsumi Aradono  
 The MIT License (MIT)  
+
+
+
+## Third-Party Licenses
+This application utilizes the following third-party software.
+
+### For the main application
+
+#### markdig
+Copyright: 2018-2019, Alexandre Mutel  
+License: BSD 2-Clause "Simplified" License  
+This software is provided under the BSD 2-Clause "Simplified" License and is distributed "AS IS." For more details, please refer to the [license file](https://github.com/xoofx/markdig/blob/master/license.txt).
+
+#### Markdig.Wpf
+Copyright: 2016-2021, Nicolas Musset  
+License: The MIT License (MIT)  
+This software is provided "AS IS," under the terms of the MIT License. For more details, please refer to the [license file](https://github.com/Kryptos-FR/markdig.wpf/blob/develop/LICENSE.md).
+
+#### Coltr.Markdig.Wpf.ColorCode
+Copyright: 2023, coltrane2ny  
+License: The MIT License (MIT)  
+This software is provided "AS IS," under the terms of the MIT License. For more details, please refer to the [license file](https://github.com/coltrane2ny/Markdig.Wpf.ColorCode/blob/main/LICENSE).
+
+#### MahApps.Metro
+Copyright: 2023, Jan Karger, Dennis Daume, Brendan Forster, Paul Jenkins, Jake Ginnivan, Alex Mitchell
+License: The MIT License (MIT)  
+This software is provided "AS IS," under the terms of the MIT License. For more details, please refer to the [license file](https://github.com/MahApps/MahApps.Metro/blob/develop/LICENSE).
+
+#### MaterialDesignThemes
+Copyright: Year not specified, James Willock, James Willock
+License: The MIT License (MIT)  
+This software is provided "AS IS," under the terms of the MIT License. For more details, please refer to the [license file](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/blob/master/LICENSE).
+
+#### Newtonsoft.Json
+Copyright: 2007, James Newton-King  
+License: The MIT License (MIT)  
+This software is provided "AS IS," under the terms of the MIT License. For more details, please refer to the [license file](https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md).
+
+### For FetchUrlAPI.dll
+The following third-party packages are utilized in the accompanying `FetchUrlAPI.dll`.
+
+#### HtmlAgilityPack
+Copyright: Year not specified, ZZZ Projects,Simon Mourrier,Jeff Klawiter,Stephan Grell
+License: The MIT License (MIT)  
+This software is provided "AS IS," under the terms of the MIT License. For more details, please refer to the [license file](https://github.com/zzzprojects/html-agility-pack/blob/master/LICENSE).
+
+#### PdfPig
+Copyright: January 2004, UglyToad  
+License: Apache License 2.0  
+This software is provided "AS IS," under the terms of the Apache License 2.0. For more details, please refer to the [license file](https://github.com/UglyToad/PdfPig/blob/master/LICENSE).
+
+### For PythonInterpreterAPI.dll
+
+#### pythonnet
+Copyright: 2006-2021 the contributors of the Python.NET project
+License: The MIT License (MIT)  
+This software is provided "AS IS," under the terms of the MIT License. For more details, please refer to the [license file](https://github.com/pythonnet/pythonnet/blob/master/LICENSE).

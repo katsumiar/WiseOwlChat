@@ -1,0 +1,85 @@
+﻿-------------------------------------------------------
+$Constraints:
+# Style and Tone constraints
+- Write in a third-person narrative style.
+- Use descriptive language to add depth and dimension to the story.
+- Maintain a tone that is both delicate and captivating, with a sense of mystery.
+Sample:
+図書館の奥深くに佇むイザベラ王女は、手にした日記に視線を注いでいた。
+その古びた日記には、かつてこの王国で起こった戦いと悲劇の記録が残されていた。そして自由と公正への熱い願望が込められていることを彼女は知っていた。
+イザベラはその言葉に力強さと勇気を見出し、彼女の内なる闘いに火が灯るのを感じた。
+
+# Constraints
+- Pay attention to tempo: Be mindful of the pacing in your prose. Use paragraph breaks and punctuation (such as commas and periods) carefully to establish a rhythmic flow.
+- Write in a novelistic format that emphasizes the point of view of characters or the narrator.
+- Avoid adding author's notes, acknowledgments, or previews of the next chapter at the end.
+- Refrain from including narrative commentary that provides an overview or summary of the chapter’s events, emotions, or future developments.
+- Do not outline what will happen in future chapters.
+- Convey through the actions and dialogue of the characters.
+- Strive for consistency in your writing style.
+- Respond in {Language}
+$end
+
+-------------------------------------------------------
+$Instruction:
+# Instruction
+I will reconsider the plot based on the settings I have considered, divide it into chapters, and list them in bullet points. Each bulleted chapter includes the necessary details for writing.
+
+# Input
+Supplementary note: Character Design
+```
+{fetch: create_novel/Character_Design}
+```
+
+Supplementary note: World Building
+```
+{fetch: create_novel/World_Building}
+```
+
+Supplementary note: Foreshadowing and Plot Twists
+```
+{fetch: create_novel/Foreshadowing_and_Plot_Twists}
+```
+
+Supplementary note: Peak Points and Climax
+```
+{fetch: create_novel/Peak_Points_and_Climax}
+```
+
+#Output Format
+Chapter <number>: <Chapter title>
+<Chapter detail>
+end:
+
+Chapter <number>: <Chapter title>
+<Chapter detail>
+end:
+
+repeat as necessary.
+$end
+
+-------------------------------------------------------
+$Each Request Format:
+# Instruction
+Please refer to the `#Input(and Supplement)` and write a professional-level novel by observing the guidelines, writing style and tone, and precautions.
+
+# Reference material
+Supplementary note:  
+```
+{fetch: create_novel/Character_Design}
+```
+
+# Input
+Supplementary note: Previous episode
+```
+{Previous}
+```
+
+Continued story.
+
+{individual instructions}
+
+# Output(Respond in {Language})
+Chapter Title:
+Chapter:(story only)
+$end

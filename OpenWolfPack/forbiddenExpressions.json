@@ -1,0 +1,10 @@
+﻿[
+  {
+    "Title": "[confidential]",
+    "Pattern": "\\[confidential\\]"
+  },
+  {
+    "Title": "[privacy]",
+    "Pattern": "\\[privacy\\]"
+  }
+]
