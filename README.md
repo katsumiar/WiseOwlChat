@@ -47,7 +47,8 @@ To use OpenAI API, you need to obtain an OpenAI API key in advance.
 Register the obtained API key as an environment variable with the name `OPENAI_AI_KEY` or `OPENAI_KEY` (Note: The purpose is the same, just the name is different).  
 
 ## Support
-If you have any questions, please contact WiseOwlChat.
+If you have any questions, please contact WiseOwlChat.  
+<img src="https://github.com/katsumiar/WiseOwlChat/assets/63950487/39264774-b53d-436d-ad05-f0d5bf9904cb" width="50%">  
 
 ## License
-The MIT License (MIT)  
+MIT License (MIT)  
