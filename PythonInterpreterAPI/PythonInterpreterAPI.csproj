@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Copy SourceFiles="$(OutDir)PythonInterpreterAPI.dll" DestinationFolder="..\OpenWolfPack\Plugins\" />
+      <Copy SourceFiles="$(OutDir)PythonInterpreterAPI.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
   </Target>
 
 </Project>

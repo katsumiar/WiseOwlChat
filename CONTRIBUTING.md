@@ -1,6 +1,6 @@
-# Contributing to OpenWolfPack
+# Contributing to WiseOwlChat
 
-Hello! Thank you for your interest in contributing to the OpenWolfPack project! This document provides guidelines for contributing to the project.
+Hello! Thank you for your interest in contributing to the WiseOwlChat project! This document provides guidelines for contributing to the project.
 
 ## Reporting Issues
 

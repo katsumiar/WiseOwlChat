@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Copy SourceFiles="$(OutDir)FetchUrlAPI.dll" DestinationFolder="..\OpenWolfPack\Plugins\" />
+      <Copy SourceFiles="$(OutDir)FetchUrlAPI.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
   </Target>
 
 </Project>

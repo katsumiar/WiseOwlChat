@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Copy SourceFiles="$(OutDir)ReadFileAPI.dll" DestinationFolder="..\OpenWolfPack\Plugins\" />
+      <Copy SourceFiles="$(OutDir)ReadFileAPI.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
   </Target>
 
 </Project>

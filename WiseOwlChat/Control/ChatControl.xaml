@@ -1,0 +1,129 @@
+﻿<UserControl xmlns:Control="clr-namespace:WiseOwlChat.Control" x:Class="WiseOwlChat.Control.ChatControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WiseOwlChat.Control"
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:markdig="clr-namespace:Markdig.Wpf;assembly=Markdig.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             SizeChanged="UserControl_SizeChanged">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{x:Static markdig:Commands.Hyperlink}" Executed="OnHyperlinkExecuted"/>
+        <CommandBinding Command="{x:Static markdig:Commands.Image}" Executed="OnImageExecuted" />
+    </UserControl.CommandBindings>
+    <UserControl.Resources>
+        <local:RoleToBackgroundConverter x:Key="RoleToBackgroundConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="0"
+                      x:Name="scrollViewer"
+                      VerticalScrollBarVisibility="Auto"
+                      PreviewMouseWheel="scrollViewer_PreviewMouseWheel"
+                      Foreground="{DynamicResource PrimaryHueLightForegroundBrush}">
+                <StackPanel x:Name="messagePanel"
+                            Margin="4 0 4 0"
+                            VerticalAlignment="Bottom">
+                    <ItemsControl ItemsSource="{Binding MarkdownViewers}">
+                        <ItemsControl.ItemTemplateSelector>
+                            <local:RoleTemplateSelector>
+                                <local:RoleTemplateSelector.ExpanderTemplate>
+                                    <DataTemplate>
+                                        <Border x:Name="border" CornerRadius="6" Margin="0,0,0,1" Background="{Binding Role, Converter={StaticResource RoleToBackgroundConverter}}">
+                                            <Expander Header="{Binding Role}" IsExpanded="False" Margin="3" Background="{Binding Role, Converter={StaticResource RoleToBackgroundConverter}}">
+                                                <Control:MarkdownViewer Markdown="{Binding MarkdownText}"/>
+                                            </Expander>
+                                        </Border>
+                                    </DataTemplate>
+                                </local:RoleTemplateSelector.ExpanderTemplate>
+                                <local:RoleTemplateSelector.DefaultTemplate>
+                                    <DataTemplate>
+                                        <Border x:Name="border" CornerRadius="6" Margin="0,0,0,1" Background="{Binding Role, Converter={StaticResource RoleToBackgroundConverter}}">
+                                            <Control:MarkdownViewer Markdown="{Binding MarkdownText, UpdateSourceTrigger=PropertyChanged}"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </local:RoleTemplateSelector.DefaultTemplate>
+                            </local:RoleTemplateSelector>
+                        </ItemsControl.ItemTemplateSelector>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+            <ComboBox Grid.Row="1"
+                  x:Name="modelSelector"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Top"
+                  ItemsSource="{Binding ModelTypeItems}"
+                  SelectedIndex="0"
+                  SelectedItem="{Binding ModelType}"
+                  Cursor="Hand"
+                  materialDesign:HintAssist.Hint="model"
+                  Style="{StaticResource MaterialDesignOutlinedComboBox}" Foreground="{DynamicResource MahApps.Brushes.Selected.Foreground}"/>
+
+            <Button Grid.Row="0"
+                x:Name="StopButton"
+                Command="{Binding StopCommand}"
+                Visibility="{Binding StopVisibility, Mode=TwoWay}"
+                Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                materialDesign:ButtonAssist.CornerRadius="25"
+                ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#CCC12C2C" BorderBrush="#CCFF0000" BorderThickness="5" Margin="0,0,10,10">
+                <TextBlock Text="Stop" />
+            </Button>
+
+            <Control:MessageInputControl Grid.Row="2" x:Name="userMessageEdit" Margin="6" />
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="20,0,0,0">
+                <mah:ToggleSwitch IsOn="{Binding UIAMode, Mode=TwoWay}" Cursor="Hand" Content="UI Analyzer" ToolTip="{Binding UIAnalyzer_Contents}" Foreground="#FF89B8DE" />
+                <mah:ToggleSwitch IsOn="{Binding AdviceMode, Mode=TwoWay}" Cursor="Hand" Content="Advice" ToolTip="{Binding Advice_Contents}" Foreground="#FF89B8DE" />
+                <mah:ToggleSwitch IsOn="{Binding ReActMode, Mode=TwoWay}" Cursor="Hand" Content="ReAct" ToolTip="Add ReAct prompt." Foreground="#FF89B8DE" />
+                <mah:ToggleSwitch IsOn="{Binding TrainingMode, Mode=TwoWay}" Cursor="Hand" Content="Training" Foreground="#FF89B8DE" />
+            </StackPanel>
+            <materialDesign:Snackbar Grid.Row="2" x:Name="Snackbar" MessageQueue="{materialDesign:MessageQueue}" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid
+                Background="{DynamicResource PrimaryHueDarkBrush}">
+                <StackPanel Cursor="Hand">
+                    <mah:ToggleSwitch Margin="8 0 0 0" IsOn="{Binding PipelineMode, Mode=TwoWay}" Cursor="Hand" Content="Pipeline" Foreground="#FF89B8DE" VerticalAlignment="Top" />
+                    <ComboBox
+                        Margin="8 0 8 0"
+                        ItemsSource="{Binding Pipelines}"
+                        SelectedIndex="{Binding SelectedPipelineIndex}"
+                        Foreground="White" />
+                </StackPanel>
+                <Grid Margin="0 62 0 0"
+                      Background="#FF0B1915">
+                    <mah:ToggleSwitch Margin="8 0 0 0" IsOn="{Binding FunctionMode, Mode=TwoWay}" Cursor="Hand" Content="Function" Foreground="#FF89B8DE" VerticalAlignment="Top" />
+                    <ListBox
+                        Margin="0 32 0 0"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        ItemsSource="{Binding PluginInfos}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox
+                                    Margin="0,-4,0,-4"
+                                    Style="{StaticResource MaterialDesignFilterChipOutlineCheckBox}"
+                                    IsChecked="{Binding Enabled}"
+                                    Content="{Binding Name}"
+                                    ToolTip="{Binding Description}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

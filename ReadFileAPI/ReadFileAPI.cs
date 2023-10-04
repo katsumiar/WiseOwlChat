@@ -60,7 +60,7 @@ namespace ReadFileAPI
                         string path = paramData.path;
                         string? regularExpression = paramData.regularExpression;
                         path = path.Trim();
-                        if (confirm($"OpenWolfPack is asking for permission to read the file.\n[ {path} ]") && path != null)
+                        if (confirm($"WiseOwlChat is asking for permission to read the file.\n[ {path} ]") && path != null)
                         {
                             string fileContents = await ReadFileAPI.FetchFile(path, regularExpression);
                             if (fileContents != null)

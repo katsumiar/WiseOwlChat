@@ -1,9 +1,4 @@
-﻿
-
-
-
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using HtmlAgilityPack;
 using System.Net;
 using System.Text;
@@ -75,7 +70,7 @@ namespace FetchUrlAPI
                             string url = paramData.url;
                             string? regularExpression = paramData.regularExpression;
                             url = url.Trim();
-                            if (confirm($"OpenWolfPack is asking for permission to access the URL.\n[ {url} ]") && url != null)
+                            if (confirm($"WiseOwlChat is asking for permission to access the URL.\n[ {url} ]") && url != null)
                             {
                                 // HTTPクライアントを生成
                                 using HttpClient httpClient = new HttpClient();
