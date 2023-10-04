@@ -21,12 +21,16 @@ WiseOwlChat has the following features.
 WiseOwlChat is a chatbot that operates using OpenAI API.
 
 ## Supported .NET version:
-7.0
+7.0(Desktop)
 
 ## Getting Started
-Set the directory containing the `WiseOwlChat.sln` file as your current directory, and execute the `dotnet build` command.
+Set the directory containing the `WiseOwlChat.sln` file as your current directory, and execute the `dotnet build` command.  
 The executable file (WiseOwlChat.exe) will be created in the following directory:  
 `WiseOwlChat\bin\Debug\net7.0-windows`
+
+```
+dotnet build
+```
 
 Please copy the DLL (.dll) files located under the directories where the plugin files are generated to the following directory:  
 `WiseOwlChat\bin\Debug\net7.0-windows\Plugins`
@@ -36,10 +40,11 @@ Please copy the DLL (.dll) files located under the directories where the plugin 
 `HolidayCalendarAPI\bin\Debug\net7.0`  
 `PythonInterpreterAPI\bin\Debug\net7.0`  
 `ReadFileAPI\bin\Debug\net7.0`  
+**When you build WiseOwlChat.sln, it will be automatically copied.**  
 
 ## API Key Requirement
-To use OpenAI API, you need to obtain an OpenAI API key in advance.
-Register the obtained API key as an environment variable with the name `OPENAI_AI_KEY` or `OPENAI_KEY` (Note: The purpose is the same, just the name is different).
+To use OpenAI API, you need to obtain an OpenAI API key in advance.  
+Register the obtained API key as an environment variable with the name `OPENAI_AI_KEY` or `OPENAI_KEY` (Note: The purpose is the same, just the name is different).  
 
 ## Support
 If you have any questions, please contact WiseOwlChat.
@@ -53,36 +58,38 @@ If you have any questions, please contact WiseOwlChat.
 `Function`: Enable all checked APIs.  
 
 ## Plugins
-To implement the `function calling` feature, create a class library containing the methods listed below and place the resulting dll file in the Plugins directory.
+To implement the `function calling` feature, create a class library containing the methods listed below and place the resulting dll file in the Plugins directory.  
 It will be automatically loaded and callable.
 ```
-- string FunctionName { get; }
-- string Description { get; }
-- object Function { get; }
-- Task<string> ExecAsync(Action<string> addContent, string param);
+string FunctionName { get; }
+string Description { get; }
+object Function { get; }
+Task<string> ExecAsync(Action<string> addContent, string param);
 ```
 *Sample source codes for ReadFileAPI.cs and FetchUrlAPI.cs plugins are included.*
 
 ## Local File Referencing is Supported
-When you drag and drop a file into the input field, the file is placed on a localhost server managed by WiseOwlChat and is replaced with a URL. You can then access it using the `FetchUrlAPI` plugin. If you want to directly refer to the file path, you can use the `ReadFileAPI` plugin.
+When you drag and drop a file into the input field, the file is placed on a localhost server managed by WiseOwlChat and is replaced with a URL.  
+You can then access it using the `FetchUrlAPI` plugin.  
+If you want to directly refer to the file path, you can use the `ReadFileAPI` plugin.  
 
 ## URL Referencing is Supported
-The bot can respond to URL content, including HTML, PDF, and text files.  
+The bot can respond to URL content, including HTML, PDF, and text files.    
 This feature is implemented as a Plugin API (FetchUrlAPI) with multiple specialized methods:
 - `FetchWebPageFromUrlAsync`: For fetching HTML content.
 - `FetchPdfFromUrlAsync`: For fetching PDF content and converting it to text.
 - `FetchTxtFromUrlAsync`: For fetching plain text content.
 
 ## Supports file upload.
-WiseOwlChat launches a dedicated website as localhost when it starts.
-Bots can upload files to this site's dedicated storage.
-Users can also download files from this site.
-This feature is implemented as a Plugin API (UploadAPI).
+WiseOwlChat launches a dedicated website as localhost when it starts.  
+Bots can upload files to this site's dedicated storage.  
+Users can also download files from this site.  
+This feature is implemented as a Plugin API (UploadAPI).  
 
 ## Calendar supported
-WiseOwlChat understands today's date, but it doesn't necessarily remember dates, days of the week, and holidays completely.
-WiseOwlChat can retrieve a calendar for the desired period with holiday information.
-This feature is implemented as a plugin API (HolidayCalendarAPI).
+WiseOwlChat understands today's date, but it doesn't necessarily remember dates, days of the week, and holidays completely.  
+WiseOwlChat can retrieve a calendar for the desired period with holiday information.  
+This feature is implemented as a plugin API (HolidayCalendarAPI).  
 
 ## Python script execution is supported.
 Please set the path to Python's DLL in the environment variable `PYTHONNET_PYDLL` in advance.  
@@ -104,12 +111,12 @@ WiseOwlChat launches a dedicated website as localhost at startup.
 `http://localhost:55553/query?request=<request content>`
 
 ## Forbidden Expressions
-If you want to specify forbidden expressions, write them in the forbiddenExpressions.json file.
-Title it with the heading of the forbidden expression and specify the corresponding pattern with regex.
-If a message sent to the AI matches a forbidden pattern, it won't be sent; instead, a warning will be issued by the AI.
+If you want to specify forbidden expressions, write them in the forbiddenExpressions.json file.  
+Title it with the heading of the forbidden expression and specify the corresponding pattern with regex.  
+If a message sent to the AI matches a forbidden pattern, it won't be sent; instead, a warning will be issued by the AI.  
 
 ## Pipeline Creation Guide
-A pipeline outlines the procedures for executing a series of tasks in a coordinated manner.
+A pipeline outlines the procedures for executing a series of tasks in a coordinated manner.  
 
 ### File Formats and Their Roles
 - `.pip` (e.g., `create_novel.pip`): Manages the main process flow and overall steps.
