@@ -1,16 +1,12 @@
-# We plan to gradually change the name from OpenWolfPack to WiseOwlChat.
+# Changed the title from OpenWolfPack to WiseOwlChat.
 
-The transition will begin with the repository name, followed by updates to the project source code, and finally modifications to Actions.
-
-When the name changes, GitHub automatically redirects requests for the old repository name to the new repository name.
-
-You will need to update the remote URL in your local Git repository as well.
+If your local Git repository's remote URL is outdated, you probably need to update it.
 ```
 git remote set-url origin https://github.com/katsumiar/WiseOwlChat.git
 ```
 
 # WiseOwlChat
-![sample](https://github.com/katsumiar/WiseOwlChat/assets/63950487/97c0b549-c87f-4b60-91fd-b35709ebcc14)
+![sample](https://github.com/katsumiar/WiseOwlChat/assets/63950487/d10819fd-875a-4146-88f8-45def8065af2)
 
 ## Features
 WiseOwlChat has the following features.
