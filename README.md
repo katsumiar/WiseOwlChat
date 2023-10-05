@@ -48,7 +48,10 @@ Register the obtained API key as an environment variable with the name `OPENAI_A
 
 ## Support
 If you have any questions, please contact WiseOwlChat.  
+  
 <img src="https://github.com/katsumiar/WiseOwlChat/assets/63950487/39264774-b53d-436d-ad05-f0d5bf9904cb" width="50%">  
+  
+[For more details, please read the wiki.](./wiki)  
 
 ## License
 MIT License (MIT)  
