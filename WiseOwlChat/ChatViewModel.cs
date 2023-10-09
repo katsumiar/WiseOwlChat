@@ -2,30 +2,13 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using WiseOwlChat.Control;
-using System.Linq;
-using System.Data;
 using static WiseOwlChat.OpenAIChat;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Globalization;
-using System.Windows.Data;
-using System.Windows.Media;
-using ControlzEx.Standard;
 using System.Text.RegularExpressions;
-using System.Net.Http;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.IO;
-using System.Reflection.Metadata;
 using System.Windows;
-using System.Threading;
-using System.Windows.Interop;
-using System.Diagnostics.Metrics;
-using Markdig;
-using System.Security.Policy;
-using Microsoft.VisualBasic;
 using static WiseOwlChat.DirectionsFileManager;
-using System.Xml.Linq;
 using System.Windows.Input;
 
 namespace WiseOwlChat
@@ -593,7 +576,16 @@ namespace WiseOwlChat
             }
             if (isAdvice && !IsStop)
             {
-                await ProcessQuerysAsync(querys, true);
+                if (PipelineMode)
+                {
+                    await ProcessQuerysAsync(querys, false, ConversationEntry.ROLE_ASSISTANT, "");
+                    await openAIChat.setConversationTitle(MODEL_TYPE.GPT_35_TURBO, update);
+                    callback?.Invoke(null);
+                }
+                else
+                {
+                    await ProcessQuerysAsync(querys, true);
+                }
                 isAdvice = false;
             }
         }
@@ -815,18 +807,23 @@ namespace WiseOwlChat
             return (viewThinkingMessage, logMessage);
         }
 
-        public async Task ProcessQuerysAsync(List<(Func<string, Task>?, PipelineInfo?)> querys, bool isPrepend, string role = ConversationEntry.ROLE_ADVICE)
+        public async Task ProcessQuerysAsync(
+            List<(Func<string, Task>?, PipelineInfo?)> querys,
+            bool isPrepend, 
+            string role = ConversationEntry.ROLE_ADVICE,
+            string title = "Supplementary note:  \n")
         {
             var taskList = new List<Task<string?>>();
 
             foreach (var (action, message) in querys)
             {
-                if (message == null)
+                if (message == null || message.Direction == null)
                 {
                     continue;
                 }
 
-                var task = openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO_16K, action == null, message.Direction, (role) => role == ConversationEntry.ROLE_SYSTEM);
+                string instruction = QueryManager.Instance.ProcessInputText(message.Direction);
+                var task = openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO_16K, action == null, instruction, (role) => role == ConversationEntry.ROLE_SYSTEM);
                 taskList.Add(task);
             }
 
@@ -853,11 +850,11 @@ namespace WiseOwlChat
 
                         if (isPrepend)
                         {
-                            PrependMessageToOpenAIChat(role, "Supplementary note:  " + Environment.NewLine + result);
+                            PrependMessageToOpenAIChat(role, title + result);
                         }
                         else
                         {
-                            AppendMessageToOpenAIChat(role, "Supplementary note:  " + Environment.NewLine + result);
+                            AppendMessageToOpenAIChat(role, title + result);
                         }
                     }
                 }
