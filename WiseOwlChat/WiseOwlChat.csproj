@@ -109,6 +109,21 @@
     <None Update="Directions\ImagineIntentAndItemize.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Directions\Judgment_Process_Review.pip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Directions\Judgment_Process_Review\Clearly_Irrational_Evaluation_of_Facts.ida">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Directions\Judgment_Process_Review\Inclusion_of_Irrelevant_Considerations.ida">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Directions\Judgment_Process_Review\Irrationalities_in_Judgment_Process.ida">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Directions\Judgment_Process_Review\Omission_of_Essential_Considerations.ida">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Directions\Narrative_Framework.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
