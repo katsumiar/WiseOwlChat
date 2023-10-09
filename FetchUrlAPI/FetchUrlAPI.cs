@@ -1,14 +1,8 @@
 ﻿using Newtonsoft.Json;
 using HtmlAgilityPack;
-using System.Net;
 using System.Text;
-using System.Net.Http;
-using System;
-using System.Reflection.PortableExecutable;
 using UglyToad.PdfPig;
 using System.Text.RegularExpressions;
-using static System.Net.Mime.MediaTypeNames;
-using Microsoft.VisualBasic;
 
 namespace FetchUrlAPI
 {

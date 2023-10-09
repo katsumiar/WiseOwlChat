@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Text.RegularExpressions;
-using System;
 using System.Globalization;
-using static HolidayCalendarAPI.HolidayCalendarAPI;
 
 namespace HolidayCalendarAPI
 {

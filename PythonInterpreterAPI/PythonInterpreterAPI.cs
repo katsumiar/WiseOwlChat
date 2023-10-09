@@ -1,8 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Text.RegularExpressions;
-using System;
-using System.Globalization;
-using static PythonInterpreterAPI.PythonInterpreterAPI;
 using Python.Runtime;
 
 namespace PythonInterpreterAPI

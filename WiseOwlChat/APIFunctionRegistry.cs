@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using static WiseOwlChat.OpenAIChat;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WiseOwlChat
 {
