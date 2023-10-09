@@ -22,6 +22,36 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+
+        <Grid.InputBindings>
+            <KeyBinding Gesture="Ctrl+Shift+U" Command="{Binding UIAnalyzerCommand}"/>
+            <KeyBinding Gesture="Ctrl+Shift+A" Command="{Binding AdviceCommand}"/>
+            <KeyBinding Gesture="Ctrl+Shift+R" Command="{Binding ReActCommand}"/>
+            <KeyBinding Gesture="Ctrl+Shift+T" Command="{Binding TrainingCommand}"/>
+            <KeyBinding Gesture="Ctrl+Shift+P" Command="{Binding PipelineCommand}"/>
+            <KeyBinding Gesture="Ctrl+Shift+F" Command="{Binding FunctionCommand}"/>
+
+            <KeyBinding Gesture="Ctrl+D1" Command="{Binding Plugins1Command}"/>
+            <KeyBinding Gesture="Ctrl+D2" Command="{Binding Plugins2Command}"/>
+            <KeyBinding Gesture="Ctrl+D3" Command="{Binding Plugins3Command}"/>
+            <KeyBinding Gesture="Ctrl+D4" Command="{Binding Plugins4Command}"/>
+            <KeyBinding Gesture="Ctrl+D5" Command="{Binding Plugins5Command}"/>
+            <KeyBinding Gesture="Ctrl+D6" Command="{Binding Plugins6Command}"/>
+            <KeyBinding Gesture="Ctrl+D7" Command="{Binding Plugins7Command}"/>
+            <KeyBinding Gesture="Ctrl+D8" Command="{Binding Plugins8Command}"/>
+            <KeyBinding Gesture="Ctrl+D9" Command="{Binding Plugins9Command}"/>
+
+            <KeyBinding  Key="NumPad1" Modifiers="Control" Command="{Binding Plugins1Command}"/>
+            <KeyBinding  Key="NumPad2" Modifiers="Control" Command="{Binding Plugins2Command}"/>
+            <KeyBinding  Key="NumPad3" Modifiers="Control" Command="{Binding Plugins3Command}"/>
+            <KeyBinding  Key="NumPad4" Modifiers="Control" Command="{Binding Plugins4Command}"/>
+            <KeyBinding  Key="NumPad5" Modifiers="Control" Command="{Binding Plugins5Command}"/>
+            <KeyBinding  Key="NumPad6" Modifiers="Control" Command="{Binding Plugins6Command}"/>
+            <KeyBinding  Key="NumPad7" Modifiers="Control" Command="{Binding Plugins7Command}"/>
+            <KeyBinding  Key="NumPad8" Modifiers="Control" Command="{Binding Plugins8Command}"/>
+            <KeyBinding  Key="NumPad9" Modifiers="Control" Command="{Binding Plugins9Command}"/>
+        </Grid.InputBindings>
+
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -85,6 +115,7 @@
             </Button>
 
             <Control:MessageInputControl Grid.Row="2" x:Name="userMessageEdit" Margin="6" />
+
             <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="20,0,0,0">
                 <mah:ToggleSwitch IsOn="{Binding UIAMode, Mode=TwoWay}" Cursor="Hand" Content="UI Analyzer" ToolTip="{Binding UIAnalyzer_Contents}" Foreground="#FF89B8DE" />
                 <mah:ToggleSwitch IsOn="{Binding AdviceMode, Mode=TwoWay}" Cursor="Hand" Content="Advice" ToolTip="{Binding Advice_Contents}" Foreground="#FF89B8DE" />

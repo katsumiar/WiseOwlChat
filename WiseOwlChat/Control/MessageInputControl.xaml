@@ -40,6 +40,7 @@
                 <KeyBinding Gesture="Ctrl+Enter" Command="{Binding SendCommand}"/>
                 <KeyBinding Gesture="Ctrl+Up" Command="{Binding UpHistoryCommand}"/>
                 <KeyBinding Gesture="Ctrl+Down" Command="{Binding DownHistoryCommand}"/>
+                <KeyBinding Gesture="Ctrl+F" Command="{Binding SendWebCommand}"/>
             </TextBox.InputBindings>
         </TextBox>
         <Button Grid.Column="1"

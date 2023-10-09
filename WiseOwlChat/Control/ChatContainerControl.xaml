@@ -17,6 +17,11 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Grid.InputBindings>
+            <KeyBinding Gesture="Ctrl+N" Command="{Binding AddNewCommand}"/>
+        </Grid.InputBindings>
+
         <Expander Grid.Column="0"
             HorizontalAlignment="Left"
             ExpandDirection="Right"

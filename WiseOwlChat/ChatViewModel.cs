@@ -20,6 +20,23 @@ namespace WiseOwlChat
         private OpenAIChat openAIChat;
         private ForbiddenExpressionChecker forbiddenExpressionChecker;
 
+        public ICommand? UIAnalyzerCommand { get; set; }
+        public ICommand? AdviceCommand { get; set; }
+        public ICommand? ReActCommand { get; set; }
+        public ICommand? TrainingCommand { get; set; }
+        public ICommand? PipelineCommand { get; set; }
+        public ICommand? FunctionCommand { get; set; }
+
+        public ICommand? Plugins1Command { get; set; }
+        public ICommand? Plugins2Command { get; set; }
+        public ICommand? Plugins3Command { get; set; }
+        public ICommand? Plugins4Command { get; set; }
+        public ICommand? Plugins5Command { get; set; }
+        public ICommand? Plugins6Command { get; set; }
+        public ICommand? Plugins7Command { get; set; }
+        public ICommand? Plugins8Command { get; set; }
+        public ICommand? Plugins9Command { get; set; }
+
         public bool IsStop { get; set; } = false;
         public ICommand? StopCommand { get; set; }
         private Visibility _stopVisibility = Visibility.Collapsed;
@@ -182,6 +199,32 @@ namespace WiseOwlChat
                 }
                 return instruction;
             });
+
+            UIAnalyzerCommand = new RelayCommand(param => { UIAMode = !UIAMode; });
+            AdviceCommand = new RelayCommand(param => { AdviceMode = !AdviceMode; });
+            ReActCommand = new RelayCommand(param => { ReActMode = !ReActMode; });
+            TrainingCommand = new RelayCommand(param => { TrainingMode = !TrainingMode; });
+            PipelineCommand = new RelayCommand(param => { PipelineMode = !PipelineMode; });
+            FunctionCommand = new RelayCommand(param => { FunctionMode = !FunctionMode; });
+
+            var pluginsCommand = new List<Action<ICommand?>>()
+            {
+                (a) => Plugins1Command = a, (a) => Plugins2Command = a, (a) => Plugins3Command = a, (a) => Plugins4Command = a, (a) => Plugins5Command = a,
+                (a) => Plugins6Command = a, (a) => Plugins7Command = a, (a) => Plugins8Command = a, (a) => Plugins9Command = a 
+            };
+            for (int pluginsIndex = 0; pluginsIndex < pluginsCommand.Count; pluginsIndex++)
+            {
+                int currentIndex = pluginsIndex;
+                if (PluginInfos.Count > pluginsIndex)
+                {
+                    pluginsCommand[currentIndex](new RelayCommand(
+                        param =>
+                        {
+                            PluginInfos[currentIndex].Enabled = !PluginInfos[currentIndex].Enabled;
+                        })
+                    );
+                }
+            }
 
             MarkdownViewers = new ObservableCollection<MarkdownViewerViewModel>();
 
