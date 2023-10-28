@@ -33,7 +33,9 @@ dotnet build
 ```
 
 Please copy the DLL (.dll) files located under the directories where the plugin files are generated to the following directory:  
-`WiseOwlChat\bin\Debug\net7.0-windows\Plugins`
+`WiseOwlChat\bin\Debug\net7.0-windows\Plugins`  
+  
+**Issue with third-party package DLL not being copied has been resolved.**
 
 ### Directories where Plugin Files are Generated
 `FetchUrlAPI\bin\Debug\net7.0`  
