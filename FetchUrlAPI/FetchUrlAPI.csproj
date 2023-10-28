@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,15 @@
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
       <Copy SourceFiles="$(OutDir)FetchUrlAPI.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)HtmlAgilityPack.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)Newtonsoft.Json.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)UglyToad.PdfPig.Core.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)UglyToad.PdfPig.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)UglyToad.PdfPig.DocumentLayoutAnalysis.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)UglyToad.PdfPig.Fonts.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)UglyToad.PdfPig.Package.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)UglyToad.PdfPig.Tokenization.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
+      <Copy SourceFiles="$(OutDir)UglyToad.PdfPig.Tokens.dll" DestinationFolder="..\WiseOwlChat\Plugins\" />
   </Target>
 
 </Project>
