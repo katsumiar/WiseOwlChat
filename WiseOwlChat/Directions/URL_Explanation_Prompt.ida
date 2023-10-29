@@ -1,5 +1,4 @@
-﻿Please tell me the outline written in the URL below.
-If there is a table of contents, it will be used for searching, so please list the information that can be used for searching.
-If you have any questions, please search and tell us the overview and what you are interested in.
+﻿Please summarize the content written in the URL of the topic in about three lines.
+If an index can be created, please list it for search purposes.
 Please reply in {Language}.
 {fetch: TOPIC}
