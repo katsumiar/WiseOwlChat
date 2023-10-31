@@ -33,7 +33,7 @@ Register the obtained API key as an environment variable with the name OPENAI_AI
 ## Support
 If you have any questions, please contact WiseOwlChat.
 
-## Modes
+## Options
 `UI Analyzer (User Intent Analyzer)`: Supports you in understanding user intent.  
 `Advice`: Automatically adds supplementary information to user's written content to support them.  
 `ReAct`: This function clarifies thoughts, actions, and observations and promotes more structured communication.  
