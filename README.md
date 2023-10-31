@@ -1,3 +1,4 @@
+[![Go to Wiki](https://img.shields.io/badge/Go%20to-Wiki-brightgreen)](https://github.com/katsumiar/WiseOwlChat/wiki)
 # Changed the title from OpenWolfPack to WiseOwlChat.
 
 If your local Git repository's remote URL is outdated, you probably need to update it.
