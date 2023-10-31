@@ -26,14 +26,14 @@ WiseOwlChat is a chatbot that operates using OpenAI API.
 ## Getting Started
 Set the directory containing the `WiseOwlChat.sln` file as your current directory, and execute the `dotnet build` command.  
 The executable file (WiseOwlChat.exe) will be created in the following directory:  
-`WiseOwlChat\bin\Debug\net7.0-windows`
+`WiseOwlChat\bin\Release\net7.0-windows\win-x64`
 
 ```
-dotnet build
+dotnet publish -c Release -r win-x64 --self-contained
 ```
 
 Please copy the DLL (.dll) files located under the directories where the plugin files are generated to the following directory:  
-`WiseOwlChat\bin\Debug\net7.0-windows\Plugins`  
+`WiseOwlChat\bin\Release\net7.0-windows\win-x64\Plugins`  
   
 **Issue with third-party package DLL not being copied has been resolved.**
 
