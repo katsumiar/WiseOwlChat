@@ -1,4 +1,6 @@
 [![Go to Wiki](https://img.shields.io/badge/Go%20to-Wiki-brightgreen)](https://github.com/katsumiar/WiseOwlChat/wiki)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/katsumiar/WiseOwlChat/blob/main/LICENSE)
+[![.NET 7](https://img.shields.io/badge/.NET-7-blue?logo=.net)](https://dotnet.microsoft.com/ja-jp/download/dotnet/7.0)
 # Changed the title from OpenWolfPack to WiseOwlChat.
 
 If your local Git repository's remote URL is outdated, you probably need to update it.
