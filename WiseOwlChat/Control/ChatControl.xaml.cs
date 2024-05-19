@@ -48,7 +48,7 @@ namespace WiseOwlChat.Control
 
             modelSelector.Dispatcher.BeginInvoke(new Action(() =>
             {
-                chatViewModel.ModelType = OpenAIChat.MODEL_TYPE.GPT_35_TURBO;
+                chatViewModel.ModelType = OpenAIChat.MODEL_TYPE.GPT_35_TURBO.ToString();
             }), DispatcherPriority.Loaded);
 
             Instance = this;

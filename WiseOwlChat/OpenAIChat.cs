@@ -49,8 +49,14 @@ namespace WiseOwlChat
             [Description("gpt-3.5-turbo")]
             GPT_35_TURBO,
 
+            [Description("gpt-4o")]
+            GPT_4o,
+
             [Description("gpt-3.5-turbo-16k")]
             GPT_35_TURBO_16K,
+
+            [Description("gpt-4-turbo")]
+            GPT_4_TURBO,
 
             [Description("gpt-4")]
             GPT_4,

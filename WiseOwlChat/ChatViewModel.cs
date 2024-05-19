@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using static WiseOwlChat.DirectionsFileManager;
 using System.Windows.Input;
+using Newtonsoft.Json.Linq;
 
 namespace WiseOwlChat
 {
@@ -58,13 +59,33 @@ namespace WiseOwlChat
             get => openAIChat.FunctionCallingRegistry.PluginInfos;
         }
 
-        public MODEL_TYPE ModelType
+        public string ModelType
         {
-            get { return openAIChat.ModelType; }
+            get {
+                string? modelName = EnumHelper.GetDescription(openAIChat.ModelType);
+                if (modelName == null)
+                {
+                    return openAIChat.ModelType.ToString();
+                }
+                return modelName;
+            }
             set
             {
-                openAIChat.ModelType = value;
-                OnPropertyChanged();
+                foreach (MODEL_TYPE model in Enum.GetValues(typeof(MODEL_TYPE)))
+                {
+                    string? modelName = EnumHelper.GetDescription(model);
+                    if (modelName == value)
+                    {
+                        openAIChat.ModelType = model;
+                        OnPropertyChanged();
+                        return;
+                    }
+                }
+                if (Enum.TryParse<MODEL_TYPE>(value, out MODEL_TYPE mode))
+                {
+                    openAIChat.ModelType = (MODEL_TYPE)mode;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -230,7 +251,11 @@ namespace WiseOwlChat
 
             foreach (MODEL_TYPE model in Enum.GetValues(typeof(MODEL_TYPE)))
             {
-                ModelTypeItems.Add(model.ToString());
+                string? modelName = EnumHelper.GetDescription(model);
+                if (modelName != null)
+                {
+                    ModelTypeItems.Add(modelName);
+                }
             }
 
             forbiddenExpressionChecker = new ForbiddenExpressionChecker();
@@ -459,9 +484,10 @@ namespace WiseOwlChat
 
             if (FunctionMode)
             {
-                if (ModelType == MODEL_TYPE.GPT_35_TURBO)
+                string? modelName = EnumHelper.GetDescription(MODEL_TYPE.GPT_35_TURBO);
+                if (ModelType == modelName)
                 {
-                    ModelType = MODEL_TYPE.GPT_35_TURBO_16K;
+                    ModelType = modelName;
                     popupMessageAction("Changed MODEL_TYPE to GPT_35_TURBO_16K.");
                 }
             }
@@ -771,25 +797,8 @@ namespace WiseOwlChat
                     continue;
                 }
 
-                await openAIChat.SystemRequestStreamForPipeline(update,
-                    (content) =>
-                    {
-                        if (content != null)
-                        {
-                            logMessage.content = content;
-                            delayedTranslation(delayedTaskList, logMessage);
-                        }
-                    }, viewThinkingMessage, tempRequest, ModelType);
-
-                string? elaboration = QueryManager.Instance.GetNameAndText("$Elaboration:");
-                if (elaboration != null)
+                if (Enum.TryParse<MODEL_TYPE>(ModelType, out MODEL_TYPE mode))
                 {
-                    // 推敲
-                    List<ConversationEntry> elaborationRequest = openAIChat.MakeRequest(
-                        false,
-                        elaboration.Replace("{response}", logMessage.content),
-                        null, true);
-
                     await openAIChat.SystemRequestStreamForPipeline(update,
                         (content) =>
                         {
@@ -798,7 +807,27 @@ namespace WiseOwlChat
                                 logMessage.content = content;
                                 delayedTranslation(delayedTaskList, logMessage);
                             }
-                        }, viewThinkingMessage, elaborationRequest, ModelType);
+                        }, viewThinkingMessage, tempRequest, mode);
+
+                    string? elaboration = QueryManager.Instance.GetNameAndText("$Elaboration:");
+                    if (elaboration != null)
+                    {
+                        // 推敲
+                        List<ConversationEntry> elaborationRequest = openAIChat.MakeRequest(
+                            false,
+                            elaboration.Replace("{response}", logMessage.content),
+                            null, true);
+
+                        await openAIChat.SystemRequestStreamForPipeline(update,
+                            (content) =>
+                            {
+                                if (content != null)
+                                {
+                                    logMessage.content = content;
+                                    delayedTranslation(delayedTaskList, logMessage);
+                                }
+                            }, viewThinkingMessage, elaborationRequest, mode);
+                    }
                 }
 
                 if (logMessage == null || logMessage.content == null)
