@@ -411,7 +411,7 @@ namespace WiseOwlChat
                         {
                             string instructions = "Please translate the content below into English.  " + Environment.NewLine
                                         + "---  " + Environment.NewLine + content;
-                            return openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO_16K, false, instructions, (role) => role == ConversationEntry.ROLE_SYSTEM);
+                            return openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO, false, instructions, (role) => role == ConversationEntry.ROLE_SYSTEM);
                         })
                 ));
         }
@@ -616,7 +616,7 @@ namespace WiseOwlChat
                             {
                                 instruction = QueryManager.Instance.ProcessInputText(instruction);
                             }
-                            string? result = await openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO_16K, false, instruction, null);
+                            string? result = await openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO, false, instruction, null);
 
                             if (direction.DirectionName != null)
                             {
@@ -895,7 +895,7 @@ namespace WiseOwlChat
                 }
 
                 string instruction = QueryManager.Instance.ProcessInputText(message.Direction);
-                var task = openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO_16K, action == null, instruction, (role) => role == ConversationEntry.ROLE_SYSTEM);
+                var task = openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO, action == null, instruction, (role) => role == ConversationEntry.ROLE_SYSTEM);
                 taskList.Add(task);
             }
 

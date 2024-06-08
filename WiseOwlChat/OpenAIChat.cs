@@ -21,7 +21,7 @@ namespace WiseOwlChat
         private ConversationInfo? _conversation;
         private ObservableCollection<ConversationInfo>? ConversationInfos;
         private bool is_addCollection = false;
-        public MODEL_TYPE ModelType { get; set; } = MODEL_TYPE.GPT_35_TURBO;
+        public MODEL_TYPE ModelType { get; set; } = MODEL_TYPE.GPT_4o;
         private ForbiddenExpressionChecker forbiddenExpressionChecker = new();
         public APIFunctionRegistry FunctionCallingRegistry = new();
 
@@ -46,14 +46,11 @@ namespace WiseOwlChat
 
         public enum MODEL_TYPE
         {
-            [Description("gpt-3.5-turbo")]
-            GPT_35_TURBO,
-
             [Description("gpt-4o")]
             GPT_4o,
 
-            [Description("gpt-3.5-turbo-16k")]
-            GPT_35_TURBO_16K,
+            [Description("gpt-3.5-turbo")]
+            GPT_35_TURBO,
 
             [Description("gpt-4-turbo")]
             GPT_4_TURBO,
