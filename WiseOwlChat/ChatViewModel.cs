@@ -65,16 +65,16 @@ namespace WiseOwlChat
                 string? modelName = EnumHelper.GetDescription(openAIChat.ModelType);
                 if (modelName == null)
                 {
-                    return openAIChat.ModelType.ToString();
+                    modelName = openAIChat.ModelType.ToString();
                 }
-                return modelName;
+                return modelName.Replace("-", " ");
             }
             set
             {
                 foreach (MODEL_TYPE model in Enum.GetValues(typeof(MODEL_TYPE)))
                 {
                     string? modelName = EnumHelper.GetDescription(model);
-                    if (modelName == value)
+                    if (modelName != null && (modelName == value || modelName == value.Replace(" ", "-")))
                     {
                         openAIChat.ModelType = model;
                         OnPropertyChanged();
@@ -83,7 +83,7 @@ namespace WiseOwlChat
                 }
                 if (Enum.TryParse<MODEL_TYPE>(value, out MODEL_TYPE mode))
                 {
-                    openAIChat.ModelType = (MODEL_TYPE)mode;
+                    openAIChat.ModelType = mode;
                     OnPropertyChanged();
                 }
             }
@@ -254,7 +254,7 @@ namespace WiseOwlChat
                 string? modelName = EnumHelper.GetDescription(model);
                 if (modelName != null)
                 {
-                    ModelTypeItems.Add(modelName);
+                    ModelTypeItems.Add(modelName.Replace("-", " "));
                 }
             }
 
@@ -411,7 +411,7 @@ namespace WiseOwlChat
                         {
                             string instructions = "Please translate the content below into English.  " + Environment.NewLine
                                         + "---  " + Environment.NewLine + content;
-                            return openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO, false, instructions, (role) => role == ConversationEntry.ROLE_SYSTEM);
+                            return openAIChat.SystemRequest(MODEL_TYPE.GPT_4o_mini, false, instructions, (role) => role == ConversationEntry.ROLE_SYSTEM);
                         })
                 ));
         }
@@ -484,11 +484,11 @@ namespace WiseOwlChat
 
             if (FunctionMode)
             {
-                string? modelName = EnumHelper.GetDescription(MODEL_TYPE.GPT_35_TURBO);
+                string? modelName = EnumHelper.GetDescription(MODEL_TYPE.GPT_4o_mini);
                 if (ModelType == modelName)
                 {
                     ModelType = modelName;
-                    popupMessageAction("Changed MODEL_TYPE to GPT_35_TURBO_16K.");
+                    popupMessageAction("Changed MODEL_TYPE to GPT_4o_mini_16K.");
                 }
             }
 
@@ -616,7 +616,7 @@ namespace WiseOwlChat
                             {
                                 instruction = QueryManager.Instance.ProcessInputText(instruction);
                             }
-                            string? result = await openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO, false, instruction, null);
+                            string? result = await openAIChat.SystemRequest(MODEL_TYPE.GPT_4o_mini, false, instruction, null);
 
                             if (direction.DirectionName != null)
                             {
@@ -648,7 +648,7 @@ namespace WiseOwlChat
                 if (PipelineMode)
                 {
                     await ProcessQuerysAsync(querys, false, ConversationEntry.ROLE_ASSISTANT, "");
-                    await openAIChat.setConversationTitle(MODEL_TYPE.GPT_35_TURBO, update);
+                    await openAIChat.setConversationTitle(MODEL_TYPE.GPT_4o_mini, update);
                     callback?.Invoke(null);
                 }
                 else
@@ -841,7 +841,7 @@ namespace WiseOwlChat
 
                 if (index == 0)
                 {
-                    await openAIChat.setConversationTitle(MODEL_TYPE.GPT_35_TURBO, update);
+                    await openAIChat.setConversationTitle(MODEL_TYPE.GPT_4o_mini, update);
                 }
 
                 if (IsStop)
@@ -895,7 +895,7 @@ namespace WiseOwlChat
                 }
 
                 string instruction = QueryManager.Instance.ProcessInputText(message.Direction);
-                var task = openAIChat.SystemRequest(MODEL_TYPE.GPT_35_TURBO, action == null, instruction, (role) => role == ConversationEntry.ROLE_SYSTEM);
+                var task = openAIChat.SystemRequest(MODEL_TYPE.GPT_4o_mini, action == null, instruction, (role) => role == ConversationEntry.ROLE_SYSTEM);
                 taskList.Add(task);
             }
 

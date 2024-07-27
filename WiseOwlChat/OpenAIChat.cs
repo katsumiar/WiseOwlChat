@@ -21,7 +21,7 @@ namespace WiseOwlChat
         private ConversationInfo? _conversation;
         private ObservableCollection<ConversationInfo>? ConversationInfos;
         private bool is_addCollection = false;
-        public MODEL_TYPE ModelType { get; set; } = MODEL_TYPE.GPT_4o;
+        public MODEL_TYPE ModelType { get; set; } = MODEL_TYPE.GPT_4o_mini;
         private ForbiddenExpressionChecker forbiddenExpressionChecker = new();
         public APIFunctionRegistry FunctionCallingRegistry = new();
 
@@ -49,8 +49,8 @@ namespace WiseOwlChat
             [Description("gpt-4o")]
             GPT_4o,
 
-            [Description("gpt-3.5-turbo")]
-            GPT_35_TURBO,
+            [Description("gpt-4o-mini")]
+            GPT_4o_mini,
 
             [Description("gpt-4-turbo")]
             GPT_4_TURBO,
@@ -182,7 +182,7 @@ namespace WiseOwlChat
 
                 return result;
 
-            }, MODEL_TYPE.GPT_35_TURBO, true, partnerReflectionGuidelines, (role) => role == ConversationEntry.ROLE_SYSTEM);
+            }, MODEL_TYPE.GPT_4o_mini, true, partnerReflectionGuidelines, (role) => role == ConversationEntry.ROLE_SYSTEM);
         }
 
         public void Remove(ConversationEntry conversation) 
@@ -606,7 +606,7 @@ namespace WiseOwlChat
                 if (!is_addCollection && _conversation != null)
                 {
                     // 会話タイトルを作成
-                    await setConversationTitle(MODEL_TYPE.GPT_35_TURBO, update);
+                    await setConversationTitle(MODEL_TYPE.GPT_4o_mini, update);
                 }
 
                 callback?.Invoke(result);
@@ -670,7 +670,7 @@ namespace WiseOwlChat
                     {
                         _conversation.Title = msg.Split(Environment.NewLine)[0];
                         _conversation.ModelType = EnumHelper.GetDescription(modelType);
-                    }, MODEL_TYPE.GPT_35_TURBO, tempRequest);
+                    }, MODEL_TYPE.GPT_4o_mini, tempRequest);
 
             is_addCollection = true;
         }
